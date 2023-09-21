@@ -1,0 +1,296 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WCU | TexnoPark</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="icon" href="https://graph.org/file/422b6649b8978ca6204c2.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">    <!---->
+    <style>
+        #navbarResponsive ul li:nth-child(4) {
+            background: #4764bf;
+            border-radius: 50rem !important;
+        }
+        .carousel-item {
+            height: 65vh;
+            min-height: 350px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .logo-in-header {
+            width: 30vw;
+            max-width:30%;
+        }
+        @media (max-width: 768px) {
+           .logo-in-header {
+                max-width: none;
+                min-width: 30%;
+            }
+         }
+    </style>
+
+    <!-- About -->
+    <style>
+        .cstm-height-card .card-img-top {
+            height: 100px;
+            object-fit: cover;
+        }
+        .about .row {
+            justify-content: center;
+        }
+        .about .card {
+            border-radius: 1rem;
+            margin-top: 5px;
+        }
+        .about .card img {
+            border-radius: 1rem 1rem 0rem 0rem;
+        }
+        .img-max-height {
+            max-height: 200px;
+            object-fit: cover;
+        }
+    </style>
+
+    <!-- New Works -->
+    <style>
+        #new {
+            background: #4764bf;
+        }
+        #new .card {
+            border-radius: 1rem;
+            padding: 10px;
+        }
+        #new .card img {
+            width: 100%;
+            height: 40%;
+            border-radius: 1rem;
+        }
+    </style>
+
+    <!-- Projects -->
+    <style>
+        #exTab3 .nav-pills>li>a {
+            border-radius: 4px 4px 0 0;
+        }
+        .projects .card {
+            border-radius: 1rem;
+            padding: 15px;
+            margin-top: 5px;
+        }
+    </style>
+
+    <!-- Footer -->
+    <style>
+        footer .container-fluid {
+            background: #4764bf;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html">
+                    <img class="logo-in-header" src="{% static 'images/Assets/logo.png' %}" alt="Logo" srcset="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link btn" href="https://texnopark.com/startups">Startup Mərkəzi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn" href="https://texnopark.com/features">Yeniliklər</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link btn" href="./services.html">Xidmətlər</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link btn" href="https://texnopark.com/contact">Əlaqə</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link btn rounded-pill text-white ms-2 me-3" href="https://forms.gle/YMMPBRfQHkNm5hfj8" target="_blank">Qeydiyyat</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                {% for carousel_image in carousel_images %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}" style='background-image: url("{{ carousel_image.image.url }}")'>
+                        <div class="carousel-caption">
+                            {% if carousel_image.position == 1 %}
+                                <h5>Birinci</h5>
+                                <p>abc</p>
+                            {% elif carousel_image.position == 2 %}
+                                <h5>İkinci</h5>
+                                <p>ccc</p>
+                            {% elif carousel_image.position == 3 %}
+                                <h5>Üçüncü</h5>
+                                <p>444</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="about">
+        <h2 class="text-center mt-5">Haqqimizda</h2>
+        <div class="container p-3 mt-5">
+            <div class="row mb-5">
+                <div class="col-md-3">
+                    <div class="">
+                        <img src="{% static 'images/Assets/Engineering.jpg' %}" class="card-img-top rounded-circle" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Mühəndislik</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="">
+                        <img src="{% static 'images/Assets/Biology.jpg' %}" class="card-img-top rounded-circle" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Biologiya</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="">
+                        <img src="{% static 'images/Assets/Robototexnika.jpg' %}" class="card-img-top rounded-circle" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Robotexnika</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="new" class="p-3">
+        <h2 class="text-center text-white">Yenilikler</h2>
+        <div class="container">
+            <div class="row">
+                {% for news_item in latest_news %}
+                    <div class="col-md-4">
+                        <div class="card mt-5">
+                            <img src="{{ news_item.main_image.url }}" alt="{{ news_item.short_description }}" class="card-img-top img-max-height ">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ news_item.short_description }}</h5>
+                                <p class="card-text">{{ news_item.description|slice:":30" }}</p>
+                                <a href="{% url 'news_detail' news_item.id %}" class="btn btn-sm">Daha çoxu..</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <h2 class="text-center mt-3">Projects</h2>
+        <div class="py-5">
+            <div class="container">
+                <div class="row hidden-md-up">
+                    {% for last_project in last_projects %}
+
+                     <div class="col-md-4">
+                        <div class="card border border-dark shadow-lg">
+                            <div class="card-block">
+                                <h4 class="card-title">{{ last_project.title }}</h4>
+                                <p class="card-text p-y-1">
+                                    {{ last_project.description|slice:":30" }}...
+                                   
+                                </p>
+                                {% for img in last_project.project_image.all %}
+                                    <img src="{{ img.image.url }}" alt="{{ project.name }}" class="rounded-circle" style="width: 40px; height: 40px">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container-fluid text-white py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-3">
+                        <img src="{% static 'images/Assets/whitelogo.png' %}" alt="Logo" style="width: 100px;">
+                    </div>
+                    <div class="col-12 col-md-6 text-center text-md-start mb-3">
+                        <h3>Western Caspian</h3>
+                        <h4>University</h4>
+                        <span>+994558540864</span>
+                    </div>
+                    <div class="col-12 col-md-6 text-center mb-3">
+                        <a href="./projects.html" class="text-white mx-2">Layihələr</a>
+                        <a href="./services.html" class="text-white mx-2">Xidmətlər</a>
+                        <a href="./contacts.html" class="text-white mx-2">Əlaqə</a>
+                        <a href="./new.html" class="text-white mx-2">Yeniliklər</a>
+                    </div>
+                    <div class="col-12 text-center mb-3">
+                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="github.com/Wcu-texnopark" class="text-white mx-2"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/wcutexnopark" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                        <a href="linkedin.com/in/qiyascc" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-12 text-center">
+                        <span>texnopark.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+</body>
+
+</html>
