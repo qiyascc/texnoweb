@@ -22,13 +22,14 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('new.html', views.news_view, name='news_view'),
-    path('news/<int:news_id>/', views.news_detail, name='news_detail'),
-    path('projects.html', views.projects_view, name='projects_view'),
+    path('features/', views.news_view, name='news_view'),
+    path('features/<int:news_id>/', views.news_detail, name='news_detail'),
+    path('projects/', views.projects_view, name='projects_view'),
     path('projects/<int:project_id>/', views.project_detail, name='project_detail'),
-    path('startup.html', views.startup_center, name='startup_center'),
+    path('startup/', views.startup_center, name='startup_center'),
     path('startup/<int:startup_id>/', views.startup_detail, name='startup_detail'),
-    path('all_startups/', views.all_startups, name='all_startups'),
+    path('startups/', views.all_startups, name='all_startups'),
+    path('contact/', views.contact, name='contact'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

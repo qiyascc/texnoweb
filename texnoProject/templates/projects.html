@@ -50,39 +50,7 @@
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="./index.html">
-                    <img class="logo-in-header" src="{% static 'images/Assets/logo.png' %}" alt="Logo" srcset="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link btn" href="https://texnopark.com/startups">Startup Mərkəzi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn" href="https://texnopark.com/features">Yeniliklər</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link btn" href="./services.html">Xidmətlər</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link btn" href="https://texnopark.com/contact">Əlaqə</a>
-                        </li>
-                        <li class="nav-item ms-3">
-                            <a class="nav-link btn rounded-pill text-white ms-2 me-3" href="https://forms.gle/YMMPBRfQHkNm5hfj8" target="_blank">Qeydiyyat</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    {% include "header_and_footer/header.html" %}
 
     <section class="main">
         <div class="container-fluid py-5 d-flex justify-content-center align-items-center">
@@ -103,7 +71,7 @@
         
         <div id="exTab3" class="container">
             <ul class="nav nav-pills nav-justified">
-                <li class="nav-item"><a href="#1b" data-toggle="tab" class="nav-link">ALL</a>
+                <li class="nav-item"><a href="#1b" data-toggle="tab" class="nav-link">Bütün</a>
                 </li>
                 <li class="nav-item"><a href="#2b" data-toggle="tab" class="nav-link">Sotware</a>
                 </li>
@@ -223,37 +191,7 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container-fluid text-white py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center mb-3">
-                        <img src="https://graph.org/file/ad9dfe6024f6a897e47f0.png" alt="Logo" style="width: 100px;">
-                    </div>
-                    <div class="col-12 col-md-6 text-center text-md-start mb-3">
-                        <h3>Western Caspian</h3>
-                        <h4>University</h4>
-                        <span>+994558540864</span>
-                    </div>
-                    <div class="col-12 col-md-6 text-center mb-3">
-                        <a href="./projects.html" class="text-white mx-2">Layihələr</a>
-                        <a href="./services.html" class="text-white mx-2">Xidmətlər</a>
-                        <a href="./contacts.html" class="text-white mx-2">Əlaqə</a>
-                        <a href="./new.html" class="text-white mx-2">Yeniliklər</a>
-                    </div>
-                    <div class="col-12 text-center mb-3">
-                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="github.com/Wcu-texnopark" class="text-white mx-2"><i class="fab fa-github"></i></a>
-                        <a href="https://instagram.com/wcutexnopark" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                        <a href="linkedin.com/in/qiyascc" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-12 text-center">
-                        <span>texnopark.com</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% include "header_and_footer/footer.html" %}
     <script src="" async defer>
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

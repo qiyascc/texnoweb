@@ -102,37 +102,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="./index.html">
-                    <img class="logo-in-header" src="{% static 'images/Assets/logo.png' %}" alt="Logo" srcset="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link btn" href="https://texnopark.com/startups">Startup Mərkəzi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn" href="https://texnopark.com/features">Yeniliklər</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link btn" href="./services.html">Xidmətlər</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link btn" href="https://texnopark.com/contact">Əlaqə</a>
-                        </li>
-                        <li class="nav-item ms-3">
-                            <a class="nav-link btn rounded-pill text-white ms-2 me-3" href="https://forms.gle/YMMPBRfQHkNm5hfj8" target="_blank">Qeydiyyat</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% include "header_and_footer/nav.html" %}
 
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -148,14 +118,17 @@
                     <div class="carousel-item {% if forloop.first %}active{% endif %}" style='background-image: url("{{ carousel_image.image.url }}")'>
                         <div class="carousel-caption">
                             {% if carousel_image.position == 1 %}
-                                <h5>Birinci</h5>
-                                <p>abc</p>
+                                <div></div>
+                                <!-- <h5>Birinci</h5>
+                                <p>abc</p> -->
                             {% elif carousel_image.position == 2 %}
-                                <h5>İkinci</h5>
-                                <p>ccc</p>
+                                <div></div>
+                                <!-- <h5>İkinci</h5>
+                                <p>ccc</p> -->
                             {% elif carousel_image.position == 3 %}
-                                <h5>Üçüncü</h5>
-                                <p>444</p>
+                                <div></div>
+                                <!-- <h5>Üçüncü</h5>
+                                <p>444</p> -->
                             {% endif %}
                         </div>
                     </div>
@@ -176,12 +149,12 @@
     </header>
 
     <section class="about">
-        <h2 class="text-center mt-5">Haqqimizda</h2>
+        <h2 class="text-center mt-5">Haqqımızda</h2>
         <div class="container p-3 mt-5">
             <div class="row mb-5">
                 <div class="col-md-3">
                     <div class="">
-                        <img src="{% static 'images/Assets/Engineering.jpg' %}" class="card-img-top rounded-circle" alt="...">
+                        <img src="{% static 'images/Engineering.jpg' %}" class="card-img-top rounded-circle" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Mühəndislik</h5>
                         </div>
@@ -189,7 +162,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="">
-                        <img src="{% static 'images/Assets/Biology.jpg' %}" class="card-img-top rounded-circle" alt="...">
+                        <img src="{% static 'images/Biology.jpg' %}" class="card-img-top rounded-circle" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Biologiya</h5>
                         </div>
@@ -197,9 +170,9 @@
                 </div>
                 <div class="col-md-3">
                     <div class="">
-                        <img src="{% static 'images/Assets/Robototexnika.jpg' %}" class="card-img-top rounded-circle" alt="...">
+                        <img src="{% static 'images/Robototexnika.jpg' %}" class="card-img-top rounded-circle" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Robotexnika</h5>
+                            <h5 class="card-title text-center">Robototexnika</h5>
                         </div>
                     </div>
                 </div>
@@ -209,7 +182,7 @@
 
 
     <section id="new" class="p-3">
-        <h2 class="text-center text-white">Yenilikler</h2>
+        <h2 class="text-center text-white">Yeniliklər</h2>
         <div class="container">
             <div class="row">
                 {% for news_item in latest_news %}
@@ -229,7 +202,7 @@
     </section>
 
     <section class="projects">
-        <h2 class="text-center mt-3">Projects</h2>
+        <h2 class="text-center mt-3">Layihələr</h2>
         <div class="py-5">
             <div class="container">
                 <div class="row hidden-md-up">
@@ -254,37 +227,7 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div class="container-fluid text-white py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center mb-3">
-                        <img src="{% static 'images/Assets/whitelogo.png' %}" alt="Logo" style="width: 100px;">
-                    </div>
-                    <div class="col-12 col-md-6 text-center text-md-start mb-3">
-                        <h3>Western Caspian</h3>
-                        <h4>University</h4>
-                        <span>+994558540864</span>
-                    </div>
-                    <div class="col-12 col-md-6 text-center mb-3">
-                        <a href="./projects.html" class="text-white mx-2">Layihələr</a>
-                        <a href="./services.html" class="text-white mx-2">Xidmətlər</a>
-                        <a href="./contacts.html" class="text-white mx-2">Əlaqə</a>
-                        <a href="./new.html" class="text-white mx-2">Yeniliklər</a>
-                    </div>
-                    <div class="col-12 text-center mb-3">
-                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="github.com/Wcu-texnopark" class="text-white mx-2"><i class="fab fa-github"></i></a>
-                        <a href="https://instagram.com/wcutexnopark" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                        <a href="linkedin.com/in/qiyascc" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-12 text-center">
-                        <span>texnopark.com</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% include "header_and_footer/footer.html" %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CarouselImage, News, Project, Image, Startup
+from .models import CarouselImage, News, Project, Image, Startup, UserMessage
 
 admin.site.register(CarouselImage)
 
@@ -18,3 +18,7 @@ class ImageAdmin(admin.ModelAdmin):
     list_display = ['image', 'alt_text']
 
 admin.site.register(Startup)
+
+@admin.register(UserMessage)
+class UserMessageAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'subject', 'date_sent']

@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from .models import CarouselImage
-from .models import News
-from .models import Project, Image, Startup
+from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib import messages
+from .models import CarouselImage, News, Project, Image, Startup
+from .forms import UserMessageForm
+
+
 
 def index(request):
     carousel_images = CarouselImage.objects.all().order_by('position')
@@ -79,3 +81,19 @@ def all_startups(request):
     return render(request, 'startup_gallery.html', context)
 
 
+
+def contact(request):
+    if request.method == 'POST':
+        form = UserMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Uğurlu bir şəkildə göndərildi!')
+            return redirect('contact')
+
+    else:
+        form = UserMessageForm()
+        context = {
+            'form': form
+        }
+
+    return render(request, 'contact.html', context)
